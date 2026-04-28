@@ -2,7 +2,18 @@ import { createContext, useContext } from "react";
 
 export type Lang = "FR" | "EN" | "AR";
 
-export const translations = {
+type Dict = {
+  nav: { services: string; portfolio: string; rooftop: string; contact: string };
+  hero: { eyebrow: string; title: string; titleAccent: string; sub: string; cta: string; ctaAlt: string };
+  stats: { events: string; partners: string; guests: string; satisfaction: string };
+  services: { title: string; sub: string };
+  portfolio: { title: string; sub: string };
+  rooftop: { eyebrow: string; title: string; sub: string; cta: string };
+  testimonials: { title: string };
+  contact: { title: string; sub: string; name: string; email: string; project: string; message: string; submit: string; success: string };
+};
+
+export const translations: Record<Lang, Dict> = {
   FR: {
     nav: { services: "Services", portfolio: "Réalisations", rooftop: "Rooftop", contact: "Contact" },
     hero: {
@@ -99,9 +110,9 @@ export const translations = {
       success: "شكراً! سنتواصل معك قريباً.",
     },
   },
-} as const;
+};
 
-export const I18nContext = createContext<{ lang: Lang; setLang: (l: Lang) => void; t: typeof translations.EN }>({
+export const I18nContext = createContext<{ lang: Lang; setLang: (l: Lang) => void; t: Dict }>({
   lang: "EN",
   setLang: () => {},
   t: translations.EN,
