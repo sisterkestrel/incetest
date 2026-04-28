@@ -1,12 +1,12 @@
 import { Instagram, Linkedin, Facebook } from "lucide-react";
-import logo from "@/assets/incevent-logo.png";
+import logo from "@/assets/logo-new.png";
 
 export function Footer() {
   return (
     <footer className="border-t border-border/50 py-12">
       <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-3">
-          <img src={logo} alt="Incevent" width={120} height={32} className="h-8 w-auto" />
+          <img src={logo} alt="Incevent" width={40} height={40} className="h-10 w-10 object-contain" />
           <span className="text-xs text-foreground/40">— events and more</span>
         </div>
         <div className="flex items-center gap-6">

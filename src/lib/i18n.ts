@@ -56,7 +56,7 @@ export const translations: Record<Lang, Dict> = {
       titleAccent: "Organization",
       sub: "Bespoke experience designers for exceptional brands. From scenography to technical production, we orchestrate every detail.",
       cta: "Start your project",
-      ctaAlt: "View portfolio",
+      ctaAlt: "Our work",
     },
     stats: { events: "Events", partners: "Partners", guests: "Guests", satisfaction: "Satisfaction" },
     services: { title: "A 360° expertise", sub: "Six pillars. One uncompromising execution." },

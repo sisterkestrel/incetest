@@ -56,21 +56,21 @@ const services = [
 export function Services() {
   const { t, lang } = useI18n();
   return (
-    <section id="services" className="relative py-32">
+    <section id="services" className="relative py-12">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-2xl mb-16"
+          className="max-w-2xl mb-8"
         >
-          <div className="text-xs tracking-[0.3em] uppercase text-gold mb-4">— Services</div>
-          <h2 className="text-4xl md:text-6xl mb-6">{t.services.title}</h2>
-          <p className="text-foreground/60 text-lg">{t.services.sub}</p>
+          <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-2">— Services</div>
+          <h2 className="text-3xl md:text-4xl mb-3">{t.services.title}</h2>
+          <p className="text-foreground/60 text-base">{t.services.sub}</p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3">
           {services.map((s, i) => {
             const Icon = s.icon;
             return (
@@ -80,7 +80,7 @@ export function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: i * 0.06, duration: 0.6 }}
-                className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card/40 backdrop-blur-sm aspect-[4/5] cursor-pointer transition-all duration-500 hover:border-gold/40 hover:-translate-y-1 hover:shadow-2xl hover:shadow-gold/10"
+                className="group relative overflow-hidden rounded-xl border border-border/50 bg-card/40 backdrop-blur-sm aspect-[4/5] md:aspect-[3/4] cursor-pointer transition-all duration-500 hover:border-gold/40 hover:-translate-y-1 hover:shadow-2xl hover:shadow-gold/10"
               >
                 {/* Hover image layer */}
                 <div className="absolute inset-0 overflow-hidden">
@@ -88,34 +88,26 @@ export function Services() {
                     src={s.img}
                     alt={s.title[lang]}
                     loading="lazy"
-                    width={1024}
-                    height={1024}
+                    width={512}
+                    height={512}
                     className="w-full h-full object-cover opacity-0 scale-110 group-hover:opacity-60 group-hover:scale-100 transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/30 group-hover:from-background group-hover:via-background/60 group-hover:to-background/20 transition-all duration-700" />
                 </div>
 
-                {/* Accent glow */}
-                <div
-                  className={`absolute -bottom-20 -right-20 w-60 h-60 rounded-full blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-700 ${
-                    s.accent === "gold" ? "bg-gold" : "bg-electric"
-                  }`}
-                />
-
-                <div className="relative h-full flex flex-col justify-between p-7">
+                <div className="relative h-full flex flex-col justify-between p-4 md:p-5">
                   <div className="flex items-start justify-between">
-                    <div className={`w-12 h-12 rounded-xl glass flex items-center justify-center ${
+                    <div className={`w-10 h-10 rounded-lg glass flex items-center justify-center ${
                       s.accent === "gold" ? "text-gold" : "text-electric"
                     }`}>
-                      <Icon className="w-5 h-5" />
+                      <Icon className="w-4 h-4" />
                     </div>
-                    <span className="text-[10px] tracking-[0.3em] uppercase text-foreground/40">0{i + 1}</span>
                   </div>
 
                   <div>
-                    <h3 className="text-2xl md:text-3xl mb-2 transition-transform duration-500 group-hover:-translate-y-1">{s.title[lang]}</h3>
-                    <p className="text-foreground/60 text-sm leading-relaxed">{s.desc[lang]}</p>
-                    <ArrowUpRight className="w-5 h-5 mt-4 text-foreground/30 group-hover:text-gold group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                    <h3 className="text-lg md:text-xl font-medium mb-1 transition-transform duration-500 group-hover:-translate-y-1">{s.title[lang]}</h3>
+                    <p className="text-foreground/60 text-[11px] leading-tight line-clamp-2 md:line-clamp-none">{s.desc[lang]}</p>
+                    <ArrowUpRight className="w-4 h-4 mt-2 text-foreground/30 group-hover:text-gold group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                   </div>
                 </div>
               </motion.div>

@@ -62,30 +62,14 @@ export function Hero() {
         Marrakech · Est. 2018
       </div>
 
-      {/* Floating stat badge */}
-      <motion.div
-        initial={{ opacity: 0, x: 60 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1, delay: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="hidden md:block absolute top-1/3 right-10 lg:right-20 z-10"
-      >
-        <div className="glass rounded-2xl p-5 w-56">
-          <div className="flex items-center gap-1 mb-2">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-3 h-3 fill-gold text-gold" />
-            ))}
-          </div>
-          <div className="text-3xl font-display text-gradient-gold">4.98</div>
-          <div className="text-xs text-foreground/60 mt-1">Average client rating · 200+ events</div>
-        </div>
-      </motion.div>
 
-      <div className="container relative mx-auto px-6 z-10">
+
+      <div className="container relative mx-auto px-6 z-10 flex flex-col items-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-4xl"
+          className="max-w-4xl flex flex-col items-center"
         >
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -102,7 +86,7 @@ export function Hero() {
             <span className="text-xs text-gold">Booking 2026</span>
           </motion.div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-8">
+          <h1 className="text-4xl md:text-7xl lg:text-8xl leading-[0.95] mb-8">
             {titleWords.map((w, i) => (
               <motion.span
                 key={i}
@@ -134,10 +118,34 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="text-lg md:text-xl text-foreground/70 max-w-2xl mb-10 leading-relaxed"
+            className="text-base md:text-xl text-foreground/70 max-w-2xl mb-8 leading-relaxed"
           >
             {t.hero.sub}
           </motion.p>
+
+          {/* Centered stat badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-10"
+          >
+            <div className="glass rounded-2xl p-4 md:p-5 flex items-center gap-4 border border-white/10">
+              <div className="flex flex-col items-center">
+                <div className="flex items-center gap-1 mb-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3 h-3 fill-gold text-gold" />
+                  ))}
+                </div>
+                <div className="text-2xl md:text-3xl font-display text-gradient-gold">4.98</div>
+              </div>
+              <div className="w-px h-10 bg-white/10" />
+              <div className="text-left">
+                <div className="text-[10px] md:text-xs text-foreground/60 uppercase tracking-widest">Average rating</div>
+                <div className="text-[10px] md:text-xs text-foreground/40 mt-0.5">200+ events orchestrated</div>
+              </div>
+            </div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

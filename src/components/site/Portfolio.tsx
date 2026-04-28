@@ -24,32 +24,32 @@ const items = [
 export function Portfolio() {
   const { t } = useI18n();
   return (
-    <section id="portfolio" className="relative py-32">
+    <section id="portfolio" className="relative py-12">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex flex-wrap items-end justify-between gap-6 mb-16"
+          className="flex flex-wrap items-end justify-between gap-4 mb-8"
         >
           <div className="max-w-2xl">
-            <div className="text-xs tracking-[0.3em] uppercase text-gold mb-4">— Portfolio</div>
-            <h2 className="text-4xl md:text-6xl mb-4">{t.portfolio.title}</h2>
-            <p className="text-foreground/60 text-lg">{t.portfolio.sub}</p>
+            <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-2">— Portfolio</div>
+            <h2 className="text-3xl md:text-4xl mb-2">{t.portfolio.title}</h2>
+            <p className="text-foreground/60 text-base">{t.portfolio.sub}</p>
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
-          {items.map((item, i) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+          {items.slice(0, 10).map((item, i) => (
             <motion.a
               key={i}
               href="#contact"
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: (i % 3) * 0.08, duration: 0.7 }}
-              className="group relative overflow-hidden rounded-2xl cursor-pointer aspect-[4/5] block"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: (i % 5) * 0.05, duration: 0.6 }}
+              className="group relative overflow-hidden rounded-xl cursor-pointer aspect-[3/4] block"
             >
               <img
                 src={item.img}
@@ -57,13 +57,13 @@ export function Portfolio() {
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
-              <div className="absolute inset-x-0 bottom-0 p-5 md:p-6 translate-y-2 group-hover:translate-y-0 transition-transform">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="text-[10px] tracking-[0.3em] uppercase text-gold">{item.tag} · {item.year}</div>
-                  <ArrowUpRight className="w-4 h-4 text-foreground/50 group-hover:text-gold transition-colors" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+              <div className="absolute inset-x-0 bottom-0 p-4 translate-y-1 group-hover:translate-y-0 transition-transform">
+                <div className="flex items-center justify-between mb-1">
+                  <div className="text-[9px] tracking-[0.2em] uppercase text-gold/80">{item.tag}</div>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-foreground/50 group-hover:text-gold transition-colors" />
                 </div>
-                <h3 className="text-lg md:text-2xl text-foreground leading-tight">{item.title}</h3>
+                <h3 className="text-base md:text-lg text-foreground leading-tight font-medium">{item.title}</h3>
               </div>
             </motion.a>
           ))}

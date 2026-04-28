@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useI18n, type Lang } from "@/lib/i18n";
-import logo from "@/assets/incevent-logo.png";
+import logo from "@/assets/logo-new.png";
 
 const langs: Lang[] = ["FR", "EN", "AR"];
 
@@ -38,7 +38,7 @@ export function Header() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2">
-          <img src={logo} alt="Incevent" width={140} height={40} className="h-9 w-auto" />
+          <img src={logo} alt="Incevent" width={40} height={40} className="h-10 w-10 object-contain" />
         </a>
 
         <nav className="hidden md:flex items-center gap-10">
