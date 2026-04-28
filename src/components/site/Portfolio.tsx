@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import festival from "@/assets/portfolio-festival.jpg";
 import gitex from "@/assets/portfolio-gitex.jpg";
 import anniversary from "@/assets/portfolio-anniversary.jpg";
 import gala from "@/assets/portfolio-gala.jpg";
 import wedding from "@/assets/portfolio-wedding.jpg";
+import fashion from "@/assets/portfolio-fashion.jpg";
+import launch from "@/assets/portfolio-launch.jpg";
 
 const items = [
   { img: festival, tag: "Music Festival", title: "Atlas Electronic", year: "2024" },
@@ -12,6 +15,10 @@ const items = [
   { img: anniversary, tag: "Private", title: "Anniversary Gala", year: "2023" },
   { img: gala, tag: "Corporate", title: "ALSA Annual", year: "2024" },
   { img: wedding, tag: "Wedding", title: "Riad Ceremony", year: "2023" },
+  { img: fashion, tag: "Fashion", title: "Couture Runway", year: "2024" },
+  { img: launch, tag: "Brand Launch", title: "Product Reveal", year: "2024" },
+  { img: festival, tag: "Festival", title: "Sahara Sessions", year: "2023" },
+  { img: gala, tag: "Corporate", title: "EBF Summit", year: "2024" },
 ];
 
 export function Portfolio() {
@@ -33,28 +40,32 @@ export function Portfolio() {
           </div>
         </motion.div>
 
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
           {items.map((item, i) => (
-            <motion.div
+            <motion.a
               key={i}
+              href="#contact"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: (i % 3) * 0.1, duration: 0.7 }}
-              className="break-inside-avoid group relative overflow-hidden rounded-2xl cursor-pointer"
+              transition={{ delay: (i % 3) * 0.08, duration: 0.7 }}
+              className="group relative overflow-hidden rounded-2xl cursor-pointer aspect-[4/5] block"
             >
               <img
                 src={item.img}
                 alt={item.title}
                 loading="lazy"
-                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
-              <div className="absolute inset-x-0 bottom-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform">
-                <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-2">{item.tag} · {item.year}</div>
-                <h3 className="text-2xl text-foreground">{item.title}</h3>
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
+              <div className="absolute inset-x-0 bottom-0 p-5 md:p-6 translate-y-2 group-hover:translate-y-0 transition-transform">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-gold">{item.tag} · {item.year}</div>
+                  <ArrowUpRight className="w-4 h-4 text-foreground/50 group-hover:text-gold transition-colors" />
+                </div>
+                <h3 className="text-lg md:text-2xl text-foreground leading-tight">{item.title}</h3>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>
